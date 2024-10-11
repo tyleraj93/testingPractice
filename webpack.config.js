@@ -1,5 +1,5 @@
 const path = require("path");
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     mode: "development",
@@ -26,16 +26,27 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css$/i,
-                use: ["style-loader", "css-loader"],
+                test: /\.jsx?$/,
+                exclude: [path.resolve(__dirname, "node_modules")], // Use absolute path
+                use: ["babel-loader"],
             },
             {
-                test: /\.js$/,
-                exclude: /node_modules|tests/,
-                use: {
-                    loader: "babel-loader", // or other appropriate loaders
-                },
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"],
             },
+        ],
+    },
+    resolve: {
+        alias: {
+            config$: "./configs/app-config.js",
+            react: "./vendor/react-master",
+        },
+        extensions: [".js", ".jsx"],
+        modules: [
+            "node_modules",
+            "bower_components",
+            "shared",
+            "/shared/vendor/modules",
         ],
     },
 };
