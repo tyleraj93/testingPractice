@@ -9,5 +9,5 @@ test('should preserve case', () => {
 });
 
 test('should keep non-alphabetic characters unchanged', () => {
-    expect(caesarCipher("Hello, World!", 3));
+    expect(caesarCipher("Hello, World!", 3)).toBe("Khoor, Zruog");
 });
