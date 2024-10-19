@@ -1,4 +1,4 @@
-export default function capitalize(word) {
+export function capitalize(word) {
     if (typeof word !== "string") {
         throw new Error("Input must be a string")
     }
