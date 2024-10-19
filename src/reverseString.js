@@ -1,4 +1,4 @@
-export default function reverseString(str) {
+export function reverseString(str) {
     if (typeof str !== "string") {
         throw new Error("Input must be a string");
     }
